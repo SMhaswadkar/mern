@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.restaurant-listing {
+  width: 400px;
+  border: 1px solid black;
+  height: auto;
+  padding: 10px;
+  margin: 5px;
+}
+
+.flexible {
+  display: flex;
+  border-color: aquamarine;
+  flex-wrap: wrap;
+}
