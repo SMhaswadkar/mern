@@ -8,6 +8,7 @@ import Cart from './components/Cart';
 import ErrorPage from './components/ErrorPage';
 import Navigation from './components/Navigation';
 import HomePage from './components/HomePage';
+import RestaurantDetails from './components/RestaurantDetails';
 
 function App() {
   return (
@@ -19,6 +20,10 @@ function App() {
         <Route path="/offer" element={<Offer />} />
         <Route path="/Sign-in" element={<SignIn />} />
         <Route path="/cart" element={<Cart />} />
+        <Route
+          path="/restaurant-details/:name/:id"
+          element={<RestaurantDetails />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </BrowserRouter>

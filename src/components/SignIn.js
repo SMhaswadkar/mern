@@ -29,7 +29,7 @@ const SignIn = () => {
   return (
     <Container className="container-xl">
       <Row>
-        <Col>
+        <Col lg={6}>
           <Form onSubmit={formik.handleSubmit}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>Email address</Form.Label>
