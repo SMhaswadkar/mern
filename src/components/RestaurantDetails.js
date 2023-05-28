@@ -12,12 +12,14 @@ const RestaurantDetails = () => {
   const restaurant_menu =
     restaurant_details?.[0]?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards;
 
-  console.log(restaurant_menu);
+  let restaurant_menu_items = restaurant_menu?.[2]?.card?.card;
+
+  console.log({ ...restaurant_menu_items });
 
   return (
     <div className="restaurant-details">
       <RestaurantInfo {...restaurant_info} />
-      <RestaurantMenu />
+      <RestaurantMenu {...restaurant_menu_items} />
     </div>
   );
 };
