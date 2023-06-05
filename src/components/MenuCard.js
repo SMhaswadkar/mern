@@ -1,8 +1,29 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch, useSelector } from 'react-redux';
+import { addToCart } from '../store/Slices/CartSlice';
 
 const MenuCard = ({ card }) => {
-  console.log(card?.info);
+  const dispatch = useDispatch();
+
+  const cart = useSelector((state) => state);
+
+  const handleAddToCart = (
+    product_id,
+    product_name,
+    product_price,
+    product_qty
+  ) => {
+    dispatch(
+      addToCart({
+        id: product_id,
+        name: product_name,
+        price: product_price,
+        qty: product_qty,
+      })
+    );
+  };
+
   return (
     <Container>
       <hr />
@@ -40,7 +61,19 @@ const MenuCard = ({ card }) => {
             <div class="styles_itemAddButton__zJ7-R">
               <div class="_3L1X9 _211P0 main_buttonInner__z6Jz0 main_button__3gpqi">
                 <div class="_1RPOp">ADD</div>
-                <div class="_1ds9T _2WdfZ _4aKW6">+</div>
+                <div
+                  class="_1ds9T _2WdfZ _4aKW6"
+                  onClick={() =>
+                    handleAddToCart(
+                      card?.info?.id,
+                      card?.info?.name,
+                      card?.info?.price / 100,
+                      1
+                    )
+                  }
+                >
+                  +
+                </div>
                 <div class="_29Y5Z _20vNm _4aKW6"></div>
                 <div class="_2zAXs _2quy- _4aKW6">0</div>
               </div>

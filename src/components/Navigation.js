@@ -1,9 +1,13 @@
+import { Badge } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import { useSelector } from 'react-redux';
 import { LinkContainer } from 'react-router-bootstrap';
 
 const Navigation = () => {
+  const cart_products = useSelector((state) => state?.cart);
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -23,7 +27,12 @@ const Navigation = () => {
               <Nav.Link>Sign in</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/cart">
-              <Nav.Link>Cart</Nav.Link>
+              <Nav.Link>
+                Cart
+                <Badge bg="secondary">
+                  {cart_products ? cart_products?.products?.length : 0}
+                </Badge>
+              </Nav.Link>
             </LinkContainer>
           </Nav>
         </Navbar.Collapse>
